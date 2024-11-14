@@ -1,0 +1,24 @@
+---
+const menuItems = [
+  { href: '#about', text: 'About' },
+  { href: '#projects', text: 'Projects' },
+  { href: '#skills', text: 'Skills' },
+  { href: '#blog', text: 'Blog' },
+  { href: '#contact', text: 'Contact' },
+];
+---
+
+<header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-primary">Portfolio</a>
+      <div class="hidden md:flex space-x-8">
+        {menuItems.map(item => (
+          <a href={item.href} class="text-gray-600 hover:text-primary transition-colors">
+            {item.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  link?: string;
+}
+
+const { title, description, image, technologies, link } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+  <img src={image} alt={title} class="w-full h-48 object-cover"/>
+  <div class="p-6">
+    <h3 class="text-xl font-semibold mb-2">{title}</h3>
+    <p class="text-gray-600 mb-4">{description}</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      {technologies.map(tech => (
+        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">
+          {tech}
+        </span>
+      ))}
+    </div>
+    {link && (
+      <a href={link} target="_blank" rel="noopener noreferrer" 
+         class="text-primary hover:underline">
+        View Project →
+      </a>
+    )}
+  </div>
+</div>

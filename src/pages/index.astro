@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const skills = [
+  { category: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'React'] },
+  { category: 'Backend', items: ['Ruby on Rails', 'Node.js'] },
+  { category: 'CMS', items: ['WordPress'] },
+  { category: 'Other', items: ['AI', 'UI/UX Design'] },
+];
+
+const projects = [
+  {
+    title: 'Vilanova Yacht Provisions',
+    description: 'A custom website for yacht provisioning and concierge services.',
+    image: '/project-1.jpg',
+    technologies: ['WordPress', 'Custom Theme', 'PHP'],
+    link: 'https://vypc.es'
+  },
+  // Add more projects here
+];
+---
+
+<Layout title="Stephen Muriithi - Portfolio">
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+        <h1 class="text-5xl font-bold text-secondary mb-6">
+          Hi, I'm <span class="text-primary">Your N</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Full-stack Developer specializing in WordPress, Ruby on Rails, and AI solutions
+        </p>
+        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full hover:bg-primary/90 transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">About Me</h2>
+      <div class="max-w-2xl mx-auto text-gray-600" data-aos="fade-up">
+        <p class="mb-4">
+          I'm a passionate developer with expertise in creating modern web solutions. With years of experience in WordPress, front-end programming, and Ruby on Rails, I love bringing ideas to life through code.
+        </p>
+        <p>
+          Currently exploring the exciting world of AI and its applications in web development, I'm always eager to learn and implement new technologies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {projects.map(project => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Skills</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {skills.map(category => (
+          <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up">
+            <h3 class="text-xl font-semibold mb-4">{category.category}</h3>
+            <ul class="space-y-2">
+              {category.items.map(item => (
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Get in Touch</h2>
+      <div class="max-w-xl mx-auto">
+        <form class="space-y-6" data-aos="fade-up">
+          <div>
+            <label for="name" class="block text-gray-700 mb-2">Name</label>
+            <input type="text" id="name" name="name" 
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"/>
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 mb-2">Email</label>
+            <input type="email" id="email" name="email" 
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"/>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 mb-2">Message</label>
+            <textarea id="message" name="message" rows="4" 
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+          </div>
+          <button type="submit" 
+                  class="w-full bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
